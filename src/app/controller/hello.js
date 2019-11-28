@@ -1,10 +1,10 @@
 
-const {
+import {
   Controller, Http, Route,
-} = require('@dazejs/framework');
+} from '@dazejs/framework';
 
 @Route()
-class Hello extends Controller {
+export default class extends Controller {
   @Http.Get()
   index() {
     return this.render('hello', {
@@ -12,6 +12,3 @@ class Hello extends Controller {
     });
   }
 }
-
-
-module.exports = Hello;

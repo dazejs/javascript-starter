@@ -1,23 +1,12 @@
+import Bootstrap from '../provider/bootstrap';
 
-
-module.exports = {
+export default {
   /**
-   * HTTP service port
-   */
-  port: 8080,
-
-  /**
-   * Encryption Key
+   * debug mode
    *
-   * This key is used by cookie or others
-   * should be set to a random, 32 character string
-   * if set empty, application will auto set with app started
+   * Be sure to turn debug off in a production environment
    */
-  keys: ['SEKRIT1'],
-
-  algorithm: 'sha1',
-
-  encoding: 'base64',
+  debug: true,
 
   /**
    * static server with public path
@@ -28,7 +17,19 @@ module.exports = {
    */
   public: true,
 
-  public_prefix: '/',
+  publicPrefix: '/assets',
+
+
+  /**
+   * Turn on compression
+   *
+   * compress - enable compression
+   *
+   * threshold - The compression threshold
+   */
+  compress: true,
+
+  threshold: 1024,
 
   /**
    * View config
@@ -36,36 +37,32 @@ module.exports = {
    * view_extension - The view defaults to the HTML suffix
    */
 
-  view_extension: 'njk',
+  viewExtension: 'html',
 
   /**
    * Cluster
    *
-   * cluster.enable - enable or disable cluster mode
+   * enable - enable or disable cluster mode
    *
-   * cluster.workers - Number of work processes, set to 0 by default using CPU cores
+   * workers - Number of work processes, set to 0 by default using CPU cores
    *
-   * cluster.sticky - ticky session
+   * sticky - ticky session
    */
-  cluster: {
-    enable: false,
-    workers: 0,
-    sticky: false,
-  },
 
-  /**
-   * debug mode
-   */
-  debug: true,
+  cluster: false,
+
+  workers: 0,
+
+  sticky: false,
 
   /**
    * template
    */
-  http_exception_template: {
+  httpErrorTemplate: {
     /* ex: 404: 'errors/404.njk', root path: /views */
   },
 
   providers: [
-    require.resolve('../provider/bootstrap'),
+    Bootstrap,
   ],
 };

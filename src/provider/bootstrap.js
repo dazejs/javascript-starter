@@ -1,7 +1,7 @@
 
-const { Provider } = require('@dazejs/framework');
+import { Provider } from '@dazejs/framework';
 
-class Bootstrap extends Provider {
+export default class Bootstrap extends Provider {
   register() {
     // ...
   }
@@ -10,5 +10,3 @@ class Bootstrap extends Provider {
     // ...
   }
 }
-
-module.exports = Bootstrap;
