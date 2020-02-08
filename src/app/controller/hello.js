@@ -1,11 +1,11 @@
 
 import {
-  Controller, Http, Route,
+  Controller, http, route,
 } from '@dazejs/framework';
 
-@Route()
+@route()
 export default class extends Controller {
-  @Http.Get()
+  @http.get()
   index() {
     return this.render('hello', {
       name: 'Daze.js',
